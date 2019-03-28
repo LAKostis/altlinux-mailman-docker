@@ -60,12 +60,12 @@ To use this container from anywhere, the 25 port or the one specified by `SMTP_P
     
 If you are going to use this container from other docker containers then it's better to just publish the port:
 
-    docker run -d --name postfix -P \
+    docker run -d --name alt-mailman -P \
            -e SMTP_SERVER=smtp.bar.com \
            -e SMTP_USERNAME=foo@bar.com \
            -e SMTP_PASSWORD=XXXXXXXX \
            -e SERVER_HOSTNAME=internal.example.com \
-	   -e MAILMAN_DOMAINS='lists.example.com lists.example2.org:example3.net'
+           -e MAILMAN_DOMAINS='lists.example.com lists.example2.org:example3.net'
            alt-mailman
 
 To see the email logs in real time:
