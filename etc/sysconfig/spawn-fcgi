@@ -1,0 +1,37 @@
+
+## ABSOLUTE path to the spawn-fcgi binary
+SPAWNFCGI="/usr/bin/spawn-fcgi"
+
+## ABSOLUTE path to the spawn binary
+FCGIPROGRAM="/usr/sbin/fcgiwrap"
+FCGIOPTIONS="-c 2"
+
+## ip to listen
+## *must* be commented out for use with unix domain socket
+#FCGILISTEN="127.0.0.1"
+
+## bind to tcp-port on localhost
+## *must* be commented out for use with unix domain socket
+#FCGIPORT="1027"
+
+## unix domain socket permissions
+SOCKETUSER=mailman
+SOCKETGROUP=_nginx
+SOCKETMODE=0770
+
+## number of PHP childs to spawn
+#PHP_FCGI_CHILDREN=100
+
+## number of request server by a single php-process until is will be restarted
+PHP_FCGI_MAX_REQUESTS=1000
+
+## IP adresses where PHP should access server connections from
+#FCGI_WEB_SERVER_ADDRS="127.0.0.1"
+
+# allowed environment variables sperated by spaces
+ALLOWED_ENV="PATH"
+
+## if this script is run as root switch to the following user
+USERID=_spawn_fcgi
+GROUPID=_webserver
+
