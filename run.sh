@@ -117,7 +117,7 @@ MAILMAN_URL_PATTERN="${MAILMAN_URL_PATTERN:-https:\/\/%s\/mailman\/}"; echo "MAI
 
 # sane defaults
 [ -n "${MAILMAN_DOMAINS}" ] || MAILMAN_DOMAINS="${MAILMAN_URL_HOST}"
-MAILMAN_DOMAINS="$(format_domains mailman "${MAILMAN_DOMAINS}")" || \
+MAILMAN_DOMAINS="$(format_domains mailman "${MAILMAN_DOMAINS}")"
 
 for var in MAILMAN_LANG \
            MAILMAN_URL_HOST \
