@@ -94,7 +94,7 @@ DEFAULT_URL_PATTERN = '@MAILMAN_URL_PATTERN@'
 # Note - if you're looking for something that is imported from mm_cfg, but you
 # didn't find it above, it's probably in Defaults.py.
 MTA = 'Postfix'
-MAILMAN_SITE_LIST = None
+MAILMAN_SITE_LIST = 'mailman'
 
 DEFAULT_SERVER_LANGUAGE = '@MAILMAN_LANG@'
 
