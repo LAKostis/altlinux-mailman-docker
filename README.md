@@ -40,9 +40,9 @@ Mailman specific vars, all optional (see defaults):
 * `MAILMAN_EMAIL_HOST` (Optional, Default value: $MAILMAN_URL_HOST) Mailman email FQDN, used in messaging
 * `MAILMAN_URL_PATTERN` (Optional, Default value: https://%s/mailman/) Mailman URL pattern used in messaging
 * `MAILMAN_DOMAINS` (Optional, Default value: $MAILMAN_URL_HOST) FQDN list to serve
-* `SITE_PASSWORD` (Optional, Default value: random generated) Mailman site (aka root) password
-* `LIST_PASSWORD` (Optional, Default value: random generated) Mailman list creation password
-* `ML_PASSWORD` (Optional, Default value: random generated) 'mailman' list password
+* `SITE_PASSWORD` (Optional, Default value: randomly generated) Mailman site (aka root) password
+* `LIST_PASSWORD` (Optional, Default value: randomly generated) Mailman list creation password
+* `ML_PASSWORD` (Optional, Default value: randomly generated) 'mailman' list password
 
 `MAILMAN_DOMAINS` can be specified as a simple list:
 
