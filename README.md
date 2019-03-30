@@ -17,6 +17,7 @@ Clone this repo and then:
 
 The following env variables need to be passed to the container:
 
+* `CUSTOM_POSTFIX` (Optional, Default value: unset) Use provided postfix configuration and skip all configuration steps
 * `SMTP_SERVER` Server address of the SMTP server to use (relay).
 * `SERVER_HOSTNAME` Server hostname for the Postfix container. Emails will appear to come from the hostname's domain.
 * `ADMIN_EMAIL` Email address of the person who should get root's mail.
@@ -33,11 +34,15 @@ The following env variable(s) are optional.
 * `SMTP_PASSWORD` SASL Password of the SMTP user.
 
 Mailman specific vars, all optional (see defaults):
+* `CUSTOM_MAILMAN` (Optional, Default value: unset) Use provided mailman configuration and skip all configuration steps
 * `MAILMAN_LANG` (Optional, Default value:ru) Default mailman language
 * `MAILMAN_URL_HOST` (Optional, Default value: $SERVER_HOSTNAME) Mailman URL FQDN, specified if mailman exposed outside with another name.
 * `MAILMAN_EMAIL_HOST` (Optional, Default value: $MAILMAN_URL_HOST) Mailman email FQDN, used in messaging
 * `MAILMAN_URL_PATTERN` (Optional, Default value: https://%s/mailman/) Mailman URL pattern used in messaging
 * `MAILMAN_DOMAINS` (Optional, Default value: $MAILMAN_URL_HOST) FQDN list to serve
+* `SITE_PASSWORD` (Optional, Default value: random generated) Mailman site (aka root) password
+* `LIST_PASSWORD` (Optional, Default value: random generated) Mailman list creation password
+* `ML_PASSWORD` (Optional, Default value: random generated) 'mailman' list password
 
 `MAILMAN_DOMAINS` can be specified as a simple list:
 
@@ -68,9 +73,14 @@ If you are going to use this container from other docker containers then it's be
            -e MAILMAN_DOMAINS='lists.example.com lists.example2.org:example3.net'
            alt-mailman
 
-To see the email logs in real time:
+To see the system logs in real time:
 
-    docker logs -f alt-mailman
+    docker logs -f alt-mailman (initial configuration)
+    docker exec -ti alt-mailman supervisorctl tail -f rsyslog (system logs)
+
+To see mailman logs in real time:
+
+    docker exec -ti alt-mailman tail -f /var/log/mailman/error /var/log/mailman/qrunner
 
 ### Debugging
 If you need troubleshooting the container you can set the environment variable _DEBUG=yes_ for a more verbose output.
